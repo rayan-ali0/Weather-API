@@ -20,9 +20,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
-<h1> Hello , This is just for trying</h1>
-      </div>
+//       <div className="app">
+// <h1> Hello , This is just for trying</h1>
+//       </div>
+<div>
+  <header> This is my header</header>
+  <main>This is my main</main>
+</div>
     );
   }
 }
