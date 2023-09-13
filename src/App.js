@@ -16,7 +16,7 @@ function App() {
       <WeatherItem/> */}
       <div id="wrapper">
         <header>
-
+      <h1>test</h1>
           <input type="text" name="city" id="city" placeholder="Type in a city name" />
           <input class="btn" type="submit" value="FIND WEATHER"></input>
         </header>
