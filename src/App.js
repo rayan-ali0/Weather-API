@@ -25,7 +25,10 @@ class App extends Component {
 //       </div>
 <div>
   <header> This is my header</header>
-  <main>This is my main</main>
+  <main>
+    <section>Hellogftui</section>
+    <section> Rayannn </section>
+  </main>
 </div>
     );
   }
