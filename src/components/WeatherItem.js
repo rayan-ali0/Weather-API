@@ -6,9 +6,8 @@ import "./../App.css" ;
 
 function CurrentWeather(){
   return(
-    <div className="content main">
            <section class="nowWeather">
-            <img class="nowImg" src={clear} alt="weatherImag" />
+            <img className="nowImg" src={clear} alt="weatherImag" />
             <div id="weatherNowTitle">Cloudy</div>
             <p className="para"><span className="weatherTemp">Temperature</span>  10&deg;C to 11&deg;C </p>
 
@@ -17,14 +16,14 @@ function CurrentWeather(){
             </p>
 
           </section>
-    </div>
+
   )
 }
 
 
 function WeatherItem(){
   return(
-    <div className="dayW main">
+    
  <section class="dayweather">
             <article class="timedetail">
               <time class="time" datetime="hh:mm">3:00</time>
@@ -71,7 +70,6 @@ function WeatherItem(){
 
 
           </section>
-    </div>
   )
 }
 

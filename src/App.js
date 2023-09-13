@@ -11,8 +11,10 @@ function App() {
   return (
     <div className="app">
       <Search/>
+      <div className="main">
       <CurrentWeather/>
       <WeatherItem/>
+      </div>
       </div>
 
   )
