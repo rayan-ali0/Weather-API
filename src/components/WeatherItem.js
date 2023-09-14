@@ -1,5 +1,4 @@
 import React from "react";
-// import { render } from "react-dom";
 import clear from "../img/weather-icons/clear.svg";
 import "./../App.css";
 
@@ -7,6 +6,7 @@ import data from "../fakeWeatherData.json";
 
 
 function CurrentWeather() {
+  
 
   return (
     <section className="nowWeather">
@@ -17,7 +17,7 @@ function CurrentWeather() {
       <p className="para"><span className="weatherTemp">Temperature</span> {Math.round(data.list[0].main.temp_min - 273.15)} &deg;C to {Math.round(data.list[0].main.temp_max - 273.15)} &deg;C </p>
 
       <p className="para2">
-        <span className="a">Humidity </span>{data.list[0].main.humidity}<span></span><span className="a">Pressure </span><span> {data.list[0].main.pressure}</span>
+        <span className="a">Humidity </span>{data.list[0].main.humidity}%<span></span><span className="a">Pressure </span><span> {data.list[0].main.pressure}</span>
       </p>
 
     </section>
@@ -26,20 +26,15 @@ function CurrentWeather() {
 }
 
 
+
+
 function WeatherItem() {
 
-  {
-    data.list.map((e) => {
-      console.log(e.dt_txt);
-    })
-  }
-
-  const getData=data.list.slice(5,11);
+  const getData=data.list.slice(1,7);
 
   return (
 
     <section className="dayweather">
-
 
       {getData.map((e) => {
         let hours= e.dt_txt.split(" ")
