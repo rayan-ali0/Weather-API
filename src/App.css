@@ -17,6 +17,7 @@
 
 .app{
   height: 100vh;
+  background-color: rgba(156, 206, 244, 255);
 }
 header {
   height: 8vh;

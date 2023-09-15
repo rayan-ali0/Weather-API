@@ -16,7 +16,7 @@ function App() {
   const API_KEY="cdfb65113fb057b18f303ca798a79c86";
 
   const url = `http://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&cnt=8&units=metric&appid=${API_KEY}`;
-
+  
 
   const handleSearch = async() => {
     // Construct the API URL with the current inputValue and API_KEY
@@ -44,7 +44,10 @@ function App() {
   };
 
   useEffect(()=>{
-    
+    if(setIsLoading){
+      handleSearch();
+    }
+
   },[])
 
   // Callback function to receive input value from the child
@@ -59,14 +62,14 @@ function App() {
 
       {showData && !isLoading ?  (
       <div className="main">
-
-        
+    
    
       <CurrentWeather showData={showData}/>
 
-      <WeatherItem/> 
+      <WeatherItem showData={showData}/> 
       
-      </div> ) : <h2>loading</h2>
+      </div> 
+      ) : <h2></h2>
      }
       </div>
 
