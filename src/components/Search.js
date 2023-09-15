@@ -12,11 +12,6 @@ function Search(props){
     props.onInputChange(value);
   };
 
-  // const handleInputChange = (event) => {
-  //   setInput(event.target.value);
-  // };
-
-
   return(
     <div className="search">
         <header>
@@ -30,22 +25,3 @@ function Search(props){
 
 export default Search;
 
-
-
-// <div>
-      //   {this.state.input}
-      //   <input
-      //     type="text"
-      //     id="input-name"
-      //     onChange={event => {
-      //       this.setState({ input: event.target.value });
-      //     }}
-      //   />
-      //   <button
-      //     onClick={event => {
-      //       this.props.handleInput(this.state.input);
-      //     }}
-      //   >
-      //     Say Hello
-      //   </button>
-      // </div>

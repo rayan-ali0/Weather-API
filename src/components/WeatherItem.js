@@ -7,13 +7,8 @@ import snow from "../img/weather-icons/snow.svg";
 import fog from "../img/weather-icons/fog.svg";
 import clear from "../img/weather-icons/clear.svg";
 import partlycloudy from "../img/weather-icons/partlycloudy.svg";
-import mostlycloudy from "../img/weather-icons/partlycloudy.svg";
+import mostlycloudy from "../img/weather-icons/mostlycloudy.svg";
 import unknown from "../img/weather-icons/unknown.svg";
-
-
-
-
-// import data from "../fakeWeatherData.json";
 
 function weatherId(showData,i){
   let id=showData.list[i].weather[0].id;
@@ -67,9 +62,6 @@ function CurrentWeather({showData}) {
 
 }
 
-
-
-
 function WeatherItem({showData}) {
 
   const getData=showData.list.slice(1,7);
@@ -92,7 +84,6 @@ function WeatherItem({showData}) {
     </section>
   )
 }
-
 
 export { CurrentWeather, WeatherItem }
 

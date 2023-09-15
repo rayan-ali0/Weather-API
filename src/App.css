@@ -1,24 +1,12 @@
-/* .app__header,
-.app__main {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  font-family: "Raleway", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */
-
-
 * {
   font-family: 'Raleway', sans-serif;
 }
 
-.app{
+.app {
   height: 100vh;
   background-color: rgba(156, 206, 244, 255);
 }
+
 header {
   height: 8vh;
   display: flex;
@@ -128,7 +116,6 @@ header {
 .para2 {
   color: #171780;
   font-size: 18px;
-
 }
 
 .a {
@@ -164,7 +151,7 @@ header {
 
   .btn,
   #city {
-  font-size: 15px;
+    font-size: 15px;
     width: 40%;
 
   }
