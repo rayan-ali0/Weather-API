@@ -10,8 +10,6 @@ import partlycloudy from "../img/weather-icons/partlycloudy.svg";
 import mostlycloudy from "../img/weather-icons/mostlycloudy.svg";
 import unknown from "../img/weather-icons/unknown.svg";
 
-
-
 function weatherId(showData, i) {
   let id = showData.list[i].weather[0].id;
   if (id < 300) {
@@ -44,27 +42,40 @@ function weatherId(showData, i) {
   }
 }
 function CurrentWeather({ showData }) {
-  console.log(showData)
+
   return (
-    <section className="nowWeather">
+    (showData === null || showData === "undefined") ? (
+      <section className="nowWeather">
 
       <img className="nowImg" src={weatherId(showData, 0)} alt="weatherImag" />
+        <img className="nowImg" src={unknown} alt="weatherImag" />
 
-      <div id="weatherNowTitle">{showData.list[0].weather[0].description}</div>
-      <p className="para"><span className="weatherTemp">Temperature</span> {Math.round(showData.list[0].main.temp_min)} &deg;C to {Math.round(showData.list[0].main.temp_max)} &deg;C </p>
+        <h1> This City does not exist</h1>
 
-      <p className="para2">
-        <span className="a">Humidity </span>{showData.list[0].main.humidity}%<span></span><span className="a">Pressure </span><span> {showData.list[0].main.pressure}</span>
-      </p>
+      </section>
+    )
+      :
+      <section className="nowWeather">
 
-    </section>
+        <img className="nowImg" src={weatherId(showData, 0)} alt="weatherImag" />
+
+        <div id="weatherNowTitle">{showData.list[0].weather[0].description}</div>
+        <p className="para"><span className="weatherTemp">Temperature</span> {Math.round(showData.list[0].main.temp_min)} &deg;C to {Math.round(showData.list[0].main.temp_max)} &deg;C </p>
+
+        <p className="para2">
+          <span className="a">Humidity </span>{showData.list[0].main.humidity}%<span></span><span className="a">Pressure </span><span> {showData.list[0].main.pressure}</span>
+        </p>
+
+      </section>
 
   )
 
 }
 
+function WeatherItem({ showData }) {
 
 function WeatherItem({ showData }) {
+
 
   const getData = showData.list.slice(1, 7);
 
@@ -85,8 +96,7 @@ function WeatherItem({ showData }) {
 
     </section>
   )
-}
-
+}}
 
 export { CurrentWeather, WeatherItem }
 

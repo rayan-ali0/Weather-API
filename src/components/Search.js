@@ -11,7 +11,8 @@ function Search(props) {
     props.onInputChange(value);
   };
 
-  return (
+
+  return(
     <div className="search">
       <header>
         <input type="text" name="city" id="city" placeholder="Type in a city name" value={inputValue} onChange={handleInputChange} />

@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Search from "./components/Search";
 import { CurrentWeather, WeatherItem } from "./components/WeatherItem"
+import Loading from "./components/Loading";
 
 function App() {
 
   const [inputValue, setInputValue] = useState("tripoli");
-  const [showData, setShowData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const API_KEY = "cdfb65113fb057b18f303ca798a79c86";
+  const [showData,setShowData]=useState(null);
+  const [isLoading,setIsLoading]=useState(false);
+  const [isFound,setIsFound]=useState(true);
+
+
+  const API_KEY="cdfb65113fb057b18f303ca798a79c86";
+
   const url = `http://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&cnt=8&units=metric&appid=${API_KEY}`;
-
-
-  const handleSearch = async () => {
+  
+  const handleSearch = async() => {
     // Construct the API URL with the current inputValue and API_KEY
     setIsLoading(true)
 
@@ -33,6 +37,8 @@ function App() {
         console.error("Error fetching weather data:", error);
         // Handle the error as needed
         setIsLoading(false)
+        setIsFound(false)
+
       });
   };
 
@@ -52,15 +58,28 @@ function App() {
     <div className="app">
       <Search onClick={handleSearch} onInputChange={handleInputValueChange} />
 
-      {showData && !isLoading ? (
-        <div className="main">
-          <CurrentWeather showData={showData} />
-          <WeatherItem showData={showData} />
+      {showData && !isLoading && isFound?  (
+      <div className="main">
+    
+   
+      <CurrentWeather showData={showData}/>
 
-        </div>
-      ) : <></>
-      }
-    </div>
+      <WeatherItem showData={showData}/> 
+      
+      </div> 
+      ) : !isFound && !isLoading?(
+        <div className="main">
+      <CurrentWeather showData={null}/>
+      </div>
+      
+      ) :
+      <div className="main">
+
+      <Loading/>
+</div>
+     }
+      </div>
+
 
   )
 }
