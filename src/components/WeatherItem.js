@@ -10,6 +10,8 @@ import partlycloudy from "../img/weather-icons/partlycloudy.svg";
 import mostlycloudy from "../img/weather-icons/mostlycloudy.svg";
 import unknown from "../img/weather-icons/unknown.svg";
 
+
+
 function weatherId(showData, i) {
   let id = showData.list[i].weather[0].id;
   if (id < 300) {
@@ -47,7 +49,6 @@ function CurrentWeather({ showData }) {
     (showData === null || showData === "undefined") ? (
       <section className="nowWeather">
 
-      <img className="nowImg" src={weatherId(showData, 0)} alt="weatherImag" />
         <img className="nowImg" src={unknown} alt="weatherImag" />
 
         <h1> This City does not exist</h1>
@@ -74,9 +75,6 @@ function CurrentWeather({ showData }) {
 
 function WeatherItem({ showData }) {
 
-function WeatherItem({ showData }) {
-
-
   const getData = showData.list.slice(1, 7);
 
   return (
@@ -96,7 +94,7 @@ function WeatherItem({ showData }) {
 
     </section>
   )
-}}
+}
 
 export { CurrentWeather, WeatherItem }
 
