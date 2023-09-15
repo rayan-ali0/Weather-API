@@ -5,13 +5,12 @@ import "./../App.css";
 import data from "../fakeWeatherData.json";
 
 
-function CurrentWeather() {
-  
+function CurrentWeather({showData}) {
 
   return (
     <section className="nowWeather">
 
-      <img className="nowImg" src={clear} alt="weatherImag" />
+      <img className="nowImg" src={clear} alt="weatherImag"/>
 
       <div id="weatherNowTitle">{data.list[0].weather[0].description}</div>
       <p className="para"><span className="weatherTemp">Temperature</span> {Math.round(data.list[0].main.temp_min - 273.15)} &deg;C to {Math.round(data.list[0].main.temp_max - 273.15)} &deg;C </p>
@@ -23,6 +22,7 @@ function CurrentWeather() {
     </section>
 
   )
+
 }
 
 

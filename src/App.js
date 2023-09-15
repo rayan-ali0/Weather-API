@@ -14,13 +14,6 @@ function App() {
   const API_KEY="cdfb65113fb057b18f303ca798a79c86";
 
 
-  // const url=`http://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&cnt=8&units=metric&appid=${API_KEY}`;
-
-
-  // const handleSearch=()=>{
-  //   console.log(url);
-  // }
-
   const handleSearch = () => {
     // Construct the API URL with the current inputValue and API_KEY
     const url = `http://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&cnt=8&units=metric&appid=${API_KEY}`;
@@ -49,8 +42,6 @@ function App() {
     
   },[])
 
-
-
   // Callback function to receive input value from the child
   const handleInputValueChange = (value) => {
     setInputValue(value);
@@ -62,16 +53,6 @@ function App() {
       <Search onClick={handleSearch} onInputChange={handleInputValueChange}/>      
 
       <div className="main">
-
-        
-        {/* <div>
-          {showData.list.map((e)=>{
-            return(
-              <p>{e.main.temp}</p>
-            )
-          })}
-        </div> */}
-
 
       <CurrentWeather showData={showData}/>
 

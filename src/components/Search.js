@@ -20,7 +20,7 @@ function Search(props){
   return(
     <div className="search">
         <header>
-          <input type="text" name="city" id="city" placeholder="Type in a city name" value={inputValue} onChange={handleInputChange} />
+        <input type="text" name="city" id="city" placeholder="Type in a city name" value={inputValue} onChange={handleInputChange} />
           <input class="btn" type="submit" value="FIND WEATHER" onClick={props.onClick}></input>
         </header>
 
