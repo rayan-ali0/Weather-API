@@ -7,52 +7,48 @@ import snow from "../img/weather-icons/snow.svg";
 import fog from "../img/weather-icons/fog.svg";
 import clear from "../img/weather-icons/clear.svg";
 import partlycloudy from "../img/weather-icons/partlycloudy.svg";
-import mostlycloudy from "../img/weather-icons/partlycloudy.svg";
+import mostlycloudy from "../img/weather-icons/mostlycloudy.svg";
 import unknown from "../img/weather-icons/unknown.svg";
 
 
 
-
-// import data from "../fakeWeatherData.json";
-
-function weatherId(showData,i){
-  let id=showData.list[i].weather[0].id;
-  if(id<300){
-     return storm;
+function weatherId(showData, i) {
+  let id = showData.list[i].weather[0].id;
+  if (id < 300) {
+    return storm;
   }
-  else if(id>=300 && id<500){
+  else if (id >= 300 && id < 500) {
     return drizzle;
   }
-  else if(id>=500 && id<600){
+  else if (id >= 500 && id < 600) {
     return rain;
   }
-  else if(id>=600 && id<700){
+  else if (id >= 600 && id < 700) {
     return snow;
   }
-  else if(id>=700 && id<800){
+  else if (id >= 700 && id < 800) {
     return fog;
   }
-  else if(id===800){
+  else if (id === 800) {
     return clear;
   }
-  
-  else if(id===801){
+
+  else if (id === 801) {
     return partlycloudy;
   }
-  else if(id>801&& id<=805){
+  else if (id > 801 && id <= 805) {
     return mostlycloudy;
   }
   else {
-return unknown;
+    return unknown;
   }
 }
-function CurrentWeather({showData}) {
-
-  console.log(showData);
+function CurrentWeather({ showData }) {
+  console.log(showData)
   return (
     <section className="nowWeather">
 
-      <img className="nowImg" src={weatherId(showData,0)} alt="weatherImag"/>
+      <img className="nowImg" src={weatherId(showData, 0)} alt="weatherImag" />
 
       <div id="weatherNowTitle">{showData.list[0].weather[0].description}</div>
       <p className="para"><span className="weatherTemp">Temperature</span> {Math.round(showData.list[0].main.temp_min)} &deg;C to {Math.round(showData.list[0].main.temp_max)} &deg;C </p>
@@ -68,22 +64,20 @@ function CurrentWeather({showData}) {
 }
 
 
+function WeatherItem({ showData }) {
 
-
-function WeatherItem({showData}) {
-
-  const getData=showData.list.slice(1,7);
+  const getData = showData.list.slice(1, 7);
 
   return (
 
     <section className="dayweather">
 
-      {getData.map((e,i) => {
-        let hours= e.dt_txt.split(" ")
+      {getData.map((e, i) => {
+        let hours = e.dt_txt.split(" ")
         return (
           <article className="timedetail">
-            <p className="time">{hours[1].slice(0,5)}</p>
-            <img className="wImg" src={weatherId(showData,i+1)} alt="weatherImag" placeholder="http://placekitten.com/g/200/300" />
+            <p className="time">{hours[1].slice(0, 5)}</p>
+            <img className="wImg" src={weatherId(showData, i + 1)} alt="weatherImag" placeholder="http://placekitten.com/g/200/300" />
             <span className="temp">{Math.round(e.main.temp)}&deg;C </span>
           </article>
         )

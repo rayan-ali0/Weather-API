@@ -1,24 +1,17 @@
-import React,{useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Search from "./components/Search";
-
 import { CurrentWeather, WeatherItem } from "./components/WeatherItem"
-
-// import "./App.css";
-
 
 function App() {
 
   const [inputValue, setInputValue] = useState("tripoli");
-  const [showData,setShowData]=useState(null);
-  const [isLoading,setIsLoading]=useState(false);
-
-
-  const API_KEY="cdfb65113fb057b18f303ca798a79c86";
-
+  const [showData, setShowData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const API_KEY = "cdfb65113fb057b18f303ca798a79c86";
   const url = `http://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&cnt=8&units=metric&appid=${API_KEY}`;
-  
 
-  const handleSearch = async() => {
+
+  const handleSearch = async () => {
     // Construct the API URL with the current inputValue and API_KEY
     setIsLoading(true)
 
@@ -43,35 +36,31 @@ function App() {
       });
   };
 
-  useEffect(()=>{
-    if(setIsLoading){
+  useEffect(() => {
+    if (setIsLoading) {
       handleSearch();
     }
-
-  },[])
+  }, [])
 
   // Callback function to receive input value from the child
   const handleInputValueChange = (value) => {
     setInputValue(value);
   };
-  
-  
+
+
   return (
     <div className="app">
-      <Search onClick={handleSearch} onInputChange={handleInputValueChange}/>
+      <Search onClick={handleSearch} onInputChange={handleInputValueChange} />
 
-      {showData && !isLoading ?  (
-      <div className="main">
-    
-   
-      <CurrentWeather showData={showData}/>
+      {showData && !isLoading ? (
+        <div className="main">
+          <CurrentWeather showData={showData} />
+          <WeatherItem showData={showData} />
 
-      <WeatherItem showData={showData}/> 
-      
-      </div> 
-      ) : <h2></h2>
-     }
-      </div>
+        </div>
+      ) : <></>
+      }
+    </div>
 
   )
 }
